@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <span>Do you want to register for the event {{ object.event_name }}</span>
+    <form action="{% url 'event-register' object.id %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Confirm" class="btn btn-secondary btn-sm mt-1 mb-1" />
+    </form>
+    <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'events-home' %}">Cancel</a>
+  </div>
+{% endblock %}
